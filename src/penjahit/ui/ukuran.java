@@ -484,6 +484,10 @@ public class ukuran extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DataKonsumen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_editbtnActionPerformed
+    private void resetbtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        reset();
+     }//GEN-LAST:event_editbtnActionPerformed
 private void reset(){
             tnama.setText("");
             tpBaju.setText("");
