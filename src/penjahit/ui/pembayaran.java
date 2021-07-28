@@ -320,7 +320,7 @@ public class pembayaran extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/penjahit","root","");
             conn.createStatement().executeUpdate("insert into transaksi values"+"('"+tID.getText()+"','"+tnama.getText()+"','"+tanggal+"','"+ttotal.getText()+"')");
             tampilkan();
-            //reset();
+            
             
             JOptionPane.showMessageDialog(null, "Berhasil Menambah");
         }catch (Exception e){
@@ -346,7 +346,7 @@ public class pembayaran extends javax.swing.JFrame {
         if (i>-1){
             tID.setText(model.getValueAt(i, 0).toString());
             tnama.setText(model.getValueAt(i, 1).toString());
-            ttotal.setText(model.getValueAt(i, 2).toString());
+            ttotal.setText(model.getValueAt(i, 3).toString());
         }
     }//GEN-LAST:event_tabelbayarMouseClicked
 
@@ -391,6 +391,54 @@ public String tanggal;
       }
         
     }//GEN-LAST:event_cetakbtnActionPerformed
+    
+     private void printbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakbtnActionPerformed                                       
+        try {
+            // TODO add your handling code here:
+            
+            area.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(pembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }  //GEN-LAST:event_printbtnActionPerformed  
+    
+     private void cetakStrukActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        area.setText("-------------------------- -\n");
+        area.setText(area.getText()+"- Mantul Tailor -\n");
+        area.setText(area.getText()+"- ---------------------------\n");
+        
+        Date obj = new Date();
+        String date = obj.toString();
+        
+        area.setText(area.getText()+"\n"+date+"\n\n");
+        area.setText(area.getText()+"Nama                      :   "+tnama.getText()+"\n");
+        area.setText(area.getText()+"Total                     :   "+ttotal.getText()+"\n");
+        area.setText(area.getText()+"Bayar                     :   "+tbayar.getText()+"\n");
+        area.setText(area.getText()+"Kembalian                 :   "+tkembalian.getText()+"\n");
+    }                                         
+    
+     private void kembalianbtnActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+         int total,bayar,kembali;    //variabel
+        
+        //inputan
+        total = Integer.parseInt(ttotal.getText());
+        bayar = Integer.parseInt(tbayar.getText());
+        
+        //rumus
+        kembali = total - bayar;
+        
+        //output
+        tkembalian.setText(Integer.toString(kembali));
+    }                                            
+
+    private void resetbtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        reset();
+        
+    }
 private void reset(){
     tID.setText("");
     tnama.setText("");
