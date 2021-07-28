@@ -475,9 +475,9 @@ public class ukuran extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/penjahit","root","");
-            conn.createStatement().executeLargeUpdate("update ukuran set nama_konsumen ='"+tnama.getText()+"',panjang_baju ='"+tpBaju.getText()+"',lebar_bahu ='"+tLebarBahu.getText()+"',lingkar_dada ='"+tLD.getText()+"',lingkar_perut ='"+tLPerut.getText()+"',lingkar_pinggulatas ='"+tLPinggulAtas.getText()+"',panjang_lengan ='"+tPL.getText()+
+            conn.createStatement().executeLargeUpdate("update ukuran set panjang_baju ='"+tpBaju.getText()+"',lebar_bahu ='"+tLebarBahu.getText()+"',lingkar_dada ='"+tLD.getText()+"',lingkar_perut ='"+tLPerut.getText()+"',lingkar_pinggulatas ='"+tLPinggulAtas.getText()+"',panjang_lengan ='"+tPL.getText()+
                     "',lingkar_pergelangantangan ='"+tLPergelanganTangan.getText()+"',lingkar_leher ='"+tLLeher.getText()+"',panjang_celana ='"+tPCelana.getText()+"',lingkar_pinggang ='"+tLPinggang.getText()+"',lingkar_pinggul ='"+tLPinggul.getText()+"',lingkar_paha ='"+tLPaha.getText()+"',selangkangan ='"+tSelang.getText()+"',lingkar_lutut ='"+tLLutut.getText()+
-                    "',lingkar_pergelangankaki ='"+tLPergelanganKaki.getText()+"'");
+                    "',lingkar_pergelangankaki ='"+tLPergelanganKaki.getText()+"' where nama_konsumen ='"+tnama.getText()+"'");
             tampilkan();
            
         } catch (SQLException ex) {
